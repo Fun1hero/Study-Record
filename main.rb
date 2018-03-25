@@ -2,6 +2,8 @@
 puts "first commit"
 puts "Second commit"
 puts "Hello Dima"
-config = IO.read('marks.csv')
-puts config
+require 'csv'
+CSV.open("marks.csv","w") do |wr|
+   wr << ["name", "age", ]
+end
 
