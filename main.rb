@@ -1,11 +1,18 @@
-
+require 'CSV'
 puts "first commit"
 puts "Second commit"
 puts "Hello Dima"
-require 'csv'
+name = []
+marks = []
 filename = 'Marks.csv'
+i = 0
 CSV.foreach(filename) do |row|
-  row << ["FIfthGreat" ,"Marks"]
+  name.push(row[0])
+  marks.push(row[1])
+  puts "#{name[i]} , #{marks[i]}"
+ # puts $..to_i
+  i += 1
 end
-puts row
-
+puts name
+puts marks
+puts 
