@@ -14,4 +14,5 @@ CSV.foreach(filename) do |row|
   puts "#{name[i]} -  #{marks[i]} - #{bday[i]}"
  # puts $..to_i
   i += 1
-end 
+  average = marks.sum / marks.size.to_f
+end
