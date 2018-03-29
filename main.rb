@@ -17,3 +17,13 @@ end
 #  average = marks.inject(&:+).to_i / marks.size.to_f
    average = marks.inject(0){ |result, elem| result + elem } / marks.size.to_f
   puts average
+#def media(marks)
+#     mid = marks.length / 2
+#    sorted = marks.sort
+ #   marks.length.odd? ? sorted[mid] : 0.5 * (sorted[mid] + sorted[mid - 1])
+#end
+ marks.sort!
+ elements = marks.count
+ center =  elements/2
+ elements.even? ? (marks[center] + marks[center+1])/2 : marks[center]
+ puts center
