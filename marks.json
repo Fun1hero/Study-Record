@@ -1,0 +1,44 @@
+{
+  "FithsGrade": [
+    { 
+      "name":"Vasya Pupkin",
+      "mark":"5",
+      "bDay": "21.03.2004"
+    },
+    { 
+      "name":"Petya Petrov",
+      "mark":"5",
+      "bDay": "18.05.2004"
+    },
+    { 
+      "name":"Vanya Ivanov",
+      "mark":"4",
+      "bDay": "03.12.2003"
+    },
+    { 
+      "name":"Dasha Ivanova",
+      "mark":"3",
+      "bDay": "29.10.2004"
+    },
+    { 
+      "name":"Sonya Lid",
+      "mark":"4",
+      "bDay": "23.11.2004"
+    },
+    { 
+      "name":"Ilon Mask",
+      "mark":"5",
+      "bDay": "07.10.2004"
+    },
+    { 
+      "name":"Stew Anderosn",
+      "mark":"3",
+      "bDay": "10.10.2004"
+    },
+    { 
+      "name":"Dima Kabanov",
+      "mark":"5",
+      "bDay": "23.10.2004"
+    }
+  ]
+}
