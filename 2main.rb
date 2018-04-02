@@ -8,10 +8,18 @@ require 'json'
   peoples[3] = {:name => "Zyno", :marks => [9,11,12,9]}
 =end
 
-  file = File.read('peoples.json') 
-  peoples = JSON.parse(file)
-
   system "clear"
+
+  def read_file(file_name)
+    file = File.read(file_name) 
+    peoples = JSON.parse(file)
+    return peoples
+  end
+
+  def write_file(file_name, peoples_hash)
+# open file or create if not exist
+    File.open(file_name,'w') { |f| f.write(peoples_hash.to_json) }
+  end
 
   def list_of_peoples(peoples_hash)
     puts "List of peoples:"
@@ -19,26 +27,25 @@ require 'json'
       puts "#{id}. #{people["name"]}: #{people["marks"]}"
     }
   end
-
+  
+  peoples = read_file('peoples.json')
   list_of_peoples(peoples)
-
+  puts peoples.size
   puts ""
   puts "If you want to change name of people, than enter : \"ID New_Name\""
 
   new_name = gets.chomp
+  id = new_name.split(" ")[0]
+  name = new_name.split(" ")[1]
 
-  if new_name.length > 3 then 
-
-    id = new_name.split(" ")[0]
-    name = new_name.split(" ")[1]
+  if id.to_i  > peoples.size  
+    peoples[id] = {:name => name, :marks => [0,0]}
+    write_file('peoples.json', peoples)
+    peoples =  read_file('peoples.json') 
+  elsif new_name.length > 3 
     peoples[id][:name] = name
-
-# open file or create if not exist
-    File.open('peoples.json','w') { |f| f.write(peoples.to_json) }
-# reread file
-    file = File.read('peoples.json') 
-    peoples = JSON.parse(file)
-  
+    write_file('peoples.json', peoples)
+    peoples =  read_file('peoples.json') 
   else 
 
     puts "Nothing was changed !"
@@ -47,24 +54,3 @@ require 'json'
   end
 
   list_of_peoples(peoples)
-
-
-
-=begin
-
-  file = File.read('marks.json') 
-  marks_hash = JSON.parse(file)
- # puts marks_hash.size
- # puts marks_hash['FithsGrade']
-  marks_hash['FithsGrade'].map{ |people| 
-    puts "#{people['name']} (#{people['bDay']}) -> #{people['mark']}"
-  }
-  
- # marks_hash['FithsGrade'] = ['name'=>'Vasya Pupkin','mark'=>[4,5,6,7,8,8]]
-
- # File.open('marks.json','w') { |f| 
-  #  f.write(marks_hash.to_json)
- # }
- #
-=end
-
